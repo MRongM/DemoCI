@@ -2,23 +2,7 @@ name: Action2
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  install:
-    runs-on: ubuntu-22.04
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - name: install dependences
-        run: "echo install"
-        # with:
-        #   python-version: 3.6.8
-
-  test:
-    runs-on: ubuntu-22.04
-    needs: install
-    steps:
-      - name: step one
-        run: pip install -r requirements.txt
-
-      - name: step two
-        run: pytest
-
-      - name: step three
-        run: python app.py
+      - run: echo "ok action2"
