@@ -9,15 +9,15 @@ steps:
   - pytest
   - python app.py
 
-- name: mariadb-step
-  image: mariadb
+- name: mysql-step
+  image: mysql
   commands:
   - sleep 15
   - mysql -u root -h database --execute="SELECT VERSION();"
 
 services:
 - name: database
-  image: mariadb
+  image: mysql
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     MYSQL_DATABASE: test
