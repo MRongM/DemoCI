@@ -5,17 +5,13 @@ jobs:
   Demo-job:
     runs-on: ubuntu-22.04
     steps:
-      - name: pip install
+      - name: step one
         run: pip install -r requirements.txt
         with:
-          python-version: 3.8
+          python-version: 3.6.8
 
-      - name: pytest
+      - name: step two
         run: pytest
-        with:
-          python-version: 3.8
 
-      - name: python
+      - name: step three
         run: python app.py
-        with:
-          python-version: 3.8
