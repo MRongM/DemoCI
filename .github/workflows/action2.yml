@@ -2,8 +2,8 @@ name: Action2
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+  Demo-job:
+    runs-on: python-3.8
     steps:
       - name: pip install
         run: pip install -r requirements.txt
@@ -11,4 +11,3 @@ jobs:
         run: pytest
       - name: python
         run: python app.py
-        
