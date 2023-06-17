@@ -3,11 +3,19 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
   Demo-job:
-    runs-on: python-3.8
+    runs-on: ubuntu-22.04
     steps:
       - name: pip install
         run: pip install -r requirements.txt
+        with:
+          python-version: 3.8
+
       - name: pytest
         run: pytest
+        with:
+          python-version: 3.8
+
       - name: python
         run: python app.py
+        with:
+          python-version: 3.8
