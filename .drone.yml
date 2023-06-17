@@ -2,8 +2,22 @@ kind: pipeline
 name: default
 
 steps:
-- name: test
+- name: pytest-step
   image: python
   commands:
   - pip install -r requirements.txt
   - pytest
+  - python app.py
+
+- name: mariadb-step
+  image: mariadb
+  commands:
+  - sleep 15
+  - mysql -u root -h database --execute="SELECT VERSION();"
+
+services:
+- name: database
+  image: mariadb
+  environment:
+    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    MYSQL_DATABASE: test
